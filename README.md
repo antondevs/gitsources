@@ -1,5 +1,5 @@
 # Git Sources
-Git Hub viewer for iOS project. Filter iOS repositories with Swift languages.
+Git Hub viewer for iOS projects. Filter iOS repositories with Swift languages.
 
 Architecture: VIPER
 
