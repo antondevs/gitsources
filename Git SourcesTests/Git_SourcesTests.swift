@@ -18,7 +18,7 @@ class Git_SourcesTests: XCTestCase {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
     }
 
     func testRepositoryList() {
@@ -50,7 +50,7 @@ class Git_SourcesTests: XCTestCase {
         context.repo = "flutter"
         
         apiLayer.fetchDirContent(context: context) { (result, error) in
-            XCTAssertNil(error, "Error loading repositories \(error?.localizedDescription ?? "")")
+            XCTAssertNil(error, "Error loading repository content \(error?.localizedDescription ?? "")")
             XCTAssert(result.count > 0)
             exp.fulfill()
         }
