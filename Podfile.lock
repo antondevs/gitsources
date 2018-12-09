@@ -1,0 +1,45 @@
+PODS:
+  - Alamofire (4.8.0)
+  - LightRoute (2.1.20)
+  - ObjectMapper (3.4.1)
+  - PKHUD (5.2.0)
+  - Swinject (2.5.0)
+  - SwinjectStoryboard (2.1.0):
+    - Swinject (~> 2.5)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - LightRoute (from `https://github.com/SpectralDragon/LightRoute.git`)
+  - ObjectMapper (~> 3.4)
+  - PKHUD (~> 5.0)
+  - Swinject
+  - SwinjectStoryboard
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ObjectMapper
+    - PKHUD
+    - Swinject
+    - SwinjectStoryboard
+
+EXTERNAL SOURCES:
+  LightRoute:
+    :git: https://github.com/SpectralDragon/LightRoute.git
+
+CHECKOUT OPTIONS:
+  LightRoute:
+    :commit: c537a7afacc290504bc73c4a893957a4e1932fb7
+    :git: https://github.com/SpectralDragon/LightRoute.git
+
+SPEC CHECKSUMS:
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  LightRoute: aa65803a1d984be3be83651b433699077bfe6ab3
+  ObjectMapper: 5311bd50ca732930959e7ca1a2de43ab823a5ced
+  PKHUD: dd5357ac65f26115c35c4a68e9b328053326c5fe
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+  SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
+
+PODFILE CHECKSUM: f780eabb97497d8e55e037734a5d5b208ee071e2
+
+COCOAPODS: 1.5.3
