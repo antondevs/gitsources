@@ -10,25 +10,53 @@ import XCTest
 @testable import Git_Sources
 
 class Git_SourcesTests: XCTestCase {
+    
+    var apiLayer:ApiService! = nil
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        apiLayer = ApiService()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testRepositoryList() {
+        
+        let exp = expectation(description: "Repository List")
+        
+        apiLayer.searchRepositories(pageIndex: 1, pageSize: 10) { (result, error) in
+            XCTAssertNil(error, "Error loading repositories \(error?.localizedDescription ?? "")")
+            XCTAssertNotNil(result, "Result is null")
+            XCTAssert(result?.items?.count == 10)
+            
+            exp.fulfill()
         }
+        
+        waitForExpectations(timeout: 8.0, handler: nil)
+        
+    }
+    
+    func testRepositoryContent() {
+        
+        let exp = expectation(description: "Repository Content")
+        
+        /* Example project on github */
+        
+        var context = BrowseContext()
+        context.owner = "flutter"
+        context.parent = ""
+        context.path = "/"
+        context.repo = "flutter"
+        
+        apiLayer.fetchDirContent(context: context) { (result, error) in
+            XCTAssertNil(error, "Error loading repositories \(error?.localizedDescription ?? "")")
+            XCTAssert(result.count > 0)
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 8.0, handler: nil)
+        
     }
 
 }

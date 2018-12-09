@@ -20,9 +20,6 @@ extension ApiService {
                 case .success(let data):
                     
                     if let responseJSON = data as? [[String: AnyObject]] {
-                        
-                        print(responseJSON)
-                        
                         let result:[ContentItem] = Mapper<ContentItem>().mapArray(JSONArray: responseJSON)
                         completion(result, nil)
                     }
@@ -37,8 +34,7 @@ extension ApiService {
     }
     
     func searchRepositories(pageIndex:Int, pageSize:Int, completion:@escaping (RepositoryResult? , Error?) -> ()) {
-        
-        Alamofire.request("\(EndPoint.githubApi)/search/repositories?q=iOS&l=Swift&sort=stars&order=desc&page=\(pageIndex)&per_page=\(pageSize)")
+        Alamofire.request("\(EndPoint.githubApi)/search/repositories?q=iOS+language:swift&sort=stars&order=desc&page=\(pageIndex)&per_page=\(pageSize)")
             .responseJSON { response  in
                 
                 switch response.result {
